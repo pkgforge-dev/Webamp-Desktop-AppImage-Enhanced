@@ -8,6 +8,7 @@ echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
     nodejs \
+    npm    \
     yarn
 
 echo "Installing debloated packages..."
