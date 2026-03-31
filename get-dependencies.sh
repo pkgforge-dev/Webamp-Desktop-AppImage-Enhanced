@@ -6,7 +6,9 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-# pacman -Syu --noconfirm PACKAGESHERE
+pacman -Syu --noconfirm \
+    nodejs \
+    yarn
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
@@ -18,9 +20,9 @@ get-debloated-pkgs --add-common --prefer-nano
 # If the application needs to be manually built that has to be done down here
 
 # if you also have to make nightly releases check for DEVEL_RELEASE = 1
-#
-# if [ "${DEVEL_RELEASE-}" = 1 ]; then
-# 	nightly build steps
-# else
-# 	regular build steps
-# fi
+echo "Getting app..."
+echo "---------------------------------------------------------------"
+git clone https://github.com/durasj/webamp-desktop.git
+cd webamp-desktop
+yarn install
+yarn start
