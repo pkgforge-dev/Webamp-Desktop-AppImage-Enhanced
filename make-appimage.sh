@@ -8,7 +8,7 @@ export ARCH VERSION
 export OUTPATH=./dist
 export ADD_HOOKS="self-updater.bg.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
-export ICON=https://raw.githubusercontent.com/durasj/webamp-desktop/f165b34fa3f8a8b9c16f1153af469c191fdb3b89/res/icon.svg
+export ICON=https://raw.githubusercontent.com/durasj/webamp-desktop/refs/heads/master/res/icon.png
 export DEPLOY_OPENGL=1
 export DEPLOY_VULKAN=1
 
