@@ -28,3 +28,6 @@ git clone https://github.com/durasj/webamp-desktop.git
 cd webamp-desktop
 yarn install
 npx electron-builder -l --x64
+
+mkdir -p ./AppDir/bin
+mv -v artifacts/linux-unpacked/* ./AppDir/bin
