@@ -6,21 +6,35 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-# pacman -Syu --noconfirm PACKAGESHERE
+pacman -Syu --noconfirm libxcrypt-compat nodejs node-gyp npm yarn
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
-# Comment this out if you need an AUR package
-#make-aur-package PACKAGENAME
+echo "Getting app..."
+echo "---------------------------------------------------------------"
+git clone --depth 1 https://github.com/durasj/webamp-desktop.git
 
-# If the application needs to be manually built that has to be done down here
+mkdir -p ./AppDir/bin
+cd webamp-desktop
 
-# if you also have to make nightly releases check for DEVEL_RELEASE = 1
-#
-# if [ "${DEVEL_RELEASE-}" = 1 ]; then
-# 	nightly build steps
-# else
-# 	regular build steps
-# fi
+sed -i \
+  -e 's|const { width, height } = screen.getPrimaryDisplay().workAreaSize;|// & \n  const width = 1200;\n  const height = 800;|' \
+  -e 's/resizable: false/resizable: true/g' \
+  -e 's/movable: false/movable: true/g' \
+  -e 's/setIgnoreMouseEvents(true, { forward: true })/setIgnoreMouseEvents(false, { forward: false })/g' \
+  main.js
+
+yarn install
+yarn build
+if [ "$ARCH" = "x86_64" ]; then
+    npx electron-builder -l --x64 --dir --publish never
+    mv -v artifacts/linux-unpacked/* ../AppDir/bin
+else
+    pacman -S --noconfirm ruby ruby-erb
+    gem install --no-user-install -n /usr/local/bin fpm
+    export USE_SYSTEM_FPM=true
+    npx electron-builder -l --arm64 --dir --publish never
+    mv -v artifacts/linux-arm64-unpacked/* ../AppDir/bin
+fi
