@@ -7,8 +7,8 @@ ARCH=$(uname -m)
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
-    nodejs \
-    npm    \
+    nodejs   \
+    node-gyp \
     yarn
 
 echo "Installing debloated packages..."
