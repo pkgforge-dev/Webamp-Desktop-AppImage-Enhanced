@@ -42,6 +42,9 @@ yarn install
 if [ "$ARCH" = "x86_64" ]; then
     npx electron-builder -l --x64
 else
+    pacman -S --noconfirm ruby
+    gem install fpm
+    export USE_SYSTEM_FPM=true
     npx electron-builder -l --arm64
 fi
 mv -v artifacts/linux-unpacked/* ../AppDir/bin
