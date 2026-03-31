@@ -11,7 +11,8 @@ export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}
 export ICON=https://raw.githubusercontent.com/durasj/webamp-desktop/refs/heads/master/res/icon.png
 export DEPLOY_OPENGL=1
 export DEPLOY_VULKAN=1
-export DEPLOY_GTk=1
+export DEPLOY_GTK=1
+export GTK_DIR=gtk-3.0
 
 # Deploy dependencies
 quick-sharun ./AppDir/bin/webamp-desktop ./AppDir/bin/libffmpeg.so #./AppDir/bin/*
