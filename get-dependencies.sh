@@ -42,7 +42,7 @@ yarn install
 if [ "$ARCH" = "x86_64" ]; then
     npx electron-builder -l --x64
 else
-    pacman -S --noconfirm ruby
+    pacman -S --noconfirm ruby ruby-erb
     #gem install fpm
     gem install --no-user-install -n /usr/local/bin fpm
     export USE_SYSTEM_FPM=true
