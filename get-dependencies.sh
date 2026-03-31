@@ -7,10 +7,11 @@ ARCH=$(uname -m)
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
-    nodejs   \
-    node-gyp \
-    npm      \
-    python   \
+    libxcrypt-compat \
+    nodejs           \
+    node-gyp         \
+    npm              \
+    python           \
     yarn
 
 echo "Installing debloated packages..."
