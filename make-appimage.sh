@@ -15,8 +15,7 @@ export DEPLOY_GTK=1
 export GTK_DIR=gtk-3.0
 
 # Deploy dependencies
-quick-sharun ./AppDir/bin/webamp-desktop ./AppDir/bin/libffmpeg.so #./AppDir/bin/*
-#echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}/bin' >> ./AppDir/.env
+quick-sharun ./AppDir/bin/webamp-desktop ./AppDir/bin/libffmpeg.so
 
 # Additional changes can be done in between here
 
