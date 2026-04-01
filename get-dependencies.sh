@@ -42,6 +42,7 @@ sed -i \
   main.js
 
 yarn install
+yarn build
 if [ "$ARCH" = "x86_64" ]; then
     npx electron-builder -l --x64 --dir --publish never
     mv -v artifacts/linux-unpacked/* ../AppDir/bin
