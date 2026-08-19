@@ -18,7 +18,6 @@ echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
-# If the application needs to be manually built that has to be done down here
 echo "Getting app..."
 echo "---------------------------------------------------------------"
 git clone https://github.com/durasj/webamp-desktop.git
