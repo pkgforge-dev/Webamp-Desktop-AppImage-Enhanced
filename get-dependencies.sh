@@ -20,7 +20,7 @@ get-debloated-pkgs --add-common --prefer-nano
 
 echo "Getting app..."
 echo "---------------------------------------------------------------"
-git clone https://github.com/durasj/webamp-desktop.git
+git clone --depth 1 https://github.com/durasj/webamp-desktop.git
 
 mkdir -p ./AppDir/bin
 cd webamp-desktop
