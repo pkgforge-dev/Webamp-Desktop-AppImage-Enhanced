@@ -12,9 +12,9 @@ echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
-echo "Getting app..."
+echo "Building Webamp Desktop..."
 echo "---------------------------------------------------------------"
-git clone --depth 1 https://github.com/durasj/webamp-desktop.git
+git clone --depth 1 https://github.com/durasj/webamp-desktop
 
 mkdir -p ./AppDir/bin
 cd webamp-desktop
